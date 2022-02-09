@@ -11,7 +11,7 @@ namespace SQL_HW
         List<string> user_id = new List<string>();
 
         [Fact]
-        public void Test1()
+        public void Check_DepartmentByID()
         {
             SQLiteConnection db = SQL_Connection.Connect(@"Data Source=C:/Users/hitsa/Desktop/SQL_HW/base_SQL.db");
             SQLiteCommand cmd = SQL_Connection.SQLCommand(db, "SELECT Department FROM QA_Course_Students WHERE Student_ID = (SELECT Student_ID FROM Lectures WHERE Theme = 'Git' AND Activity = 10) ");
@@ -20,7 +20,7 @@ namespace SQL_HW
             SQL_Connection.CloseConnect(db);
         }
         [Fact]
-        public void Test2()
+        public void Check_FullNameByStudentID()
         {
             SQLiteConnection db = SQL_Connection.Connect(@"Data Source=C:/Users/hitsa/Desktop/SQL_HW/base_SQL.db");
             SQLiteCommand cmd = SQL_Connection.SQLCommand(db, "SELECT Full_Name FROM QA_Course_Students WHERE Student_ID = (SELECT Student_ID FROM Lectures WHERE Theme = 'SQL' AND Activity = 5) ");
@@ -29,7 +29,7 @@ namespace SQL_HW
             SQL_Connection.CloseConnect(db);
         }
         [Fact]
-        public void Test3()
+        public void Check_SoftSkillsByID()
         {
             SQLiteConnection db = SQL_Connection.Connect(@"Data Source=C:/Users/hitsa/Desktop/SQL_HW/base_SQL.db");
             SQLiteCommand cmd = SQL_Connection.SQLCommand(db, "SELECT Soft_Skills FROM QA_Course_Students WHERE Student_ID = (SELECT Student_ID FROM Lectures WHERE Theme = 'Mobile Testing' AND Activity = 6) ");
